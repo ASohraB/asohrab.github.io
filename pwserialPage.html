@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WebSerial Demo</title>
+    <script defer src="https://pyscript.net/releases/2022.12.1/pyscript.js"></script>
+    <link rel="stylesheet" href="https://pyscript.net/releases/2022.12.1/pyscript.css">
+</head>
+<body>
+     <section class="pyscript">
+            <py-tutor modules="d3.py">
+                <py-config>
+                    plugins = [
+                      "https://pyscript.net/latest/plugins/python/py_tutor.py"
+                    ]
+                    [[fetch]]
+                    files = ["https://asohrab.github.io/PPTworkshops/pywasm/webserialdemo.py"]
+                </py-config>
+            </py-tutor>
+            <b>
+                Based on
+                <i
+                    ><a
+                        href="https://observablehq.com/@d3/learn-d3-shapes?collection=@d3/learn-d3>"
+                        >Learn D3: Shapes</a
+                    ></i
+                >
+                tutorial.
+            </b>
+            <div style="display: flex; flex-direction: row">
+                <div>
+                    <div style="text-align: center">JavaScript version</div>
+                    <div id="js" style="width: 400px; height: 400px">
+                        <div class="loading"></div>
+                    </div>
+                </div>
+                <div>
+                    <div style="text-align: center">PyScript version</div>
+                    <div id="py" style="width: 400px; height: 400px">
+                        <div class="loading"></div>
+                    </div>
+                </div>
+            </div>
+            <py-script src="d3.py"></py-script>
+        </section>
+    <py-script src="webserialdemo.py"></py-script>
+    <button py-click="sm.askForSerial()" id="open">Open a Serial Port</button>
+    <br><button py-click ="sendValueFromInputBox(sm)" id="write">Write to the serial port:</button>
+    <input type="text" id="text">
+</body>
+</html>
